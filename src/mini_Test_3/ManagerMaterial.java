@@ -10,29 +10,39 @@ public class ManagerMaterial {
         while (isValid) {
             showMenuAddMaterial();
             int choice = scanner.nextInt();
-            switch (choice) {
-                case 1: {
-                    addMaterialIsCrispyFlour(scanner, material);
-                    System.out.println("Bạn đã thêm vật liệu thành công.");
-                    break;
-                }
-                case 2: {
-                    addMaterialIsMeat(scanner, material);
-                    System.out.println("Bạn đã thêm vật liệu thành công.");
-                    break;
-                }
-                default: {
-                    System.out.println("Bạn đã nhập sai!!!");
-                }
-            }
-            System.out.println();
-            System.out.println("Bạn có muốn tiếp tục hay không.");
-            System.out.println("Nếu muốn bấm phím 1.");
-            System.out.println("Nếu không bấm phím 2.");
+
+            choiceAddMaterial(scanner, material, choice);
+            showMenuChoiceNext();
+
             int choice2 = scanner.nextInt();
             scanner.nextLine();
             if (choice2 == 2) {
                 isValid = false;
+            }
+        }
+    }
+
+    private static void showMenuChoiceNext() {
+        System.out.println();
+        System.out.println("Bạn có muốn tiếp tục hay không.");
+        System.out.println("Nếu muốn bấm phím 1.");
+        System.out.println("Nếu không bấm phím 2.");
+    }
+
+    private static void choiceAddMaterial(Scanner scanner, ArrayList<Material> material, int choice) {
+        switch (choice) {
+            case 1: {
+                addMaterialIsCrispyFlour(scanner, material);
+                System.out.println("Bạn đã thêm vật liệu thành công.");
+                break;
+            }
+            case 2: {
+                addMaterialIsMeat(scanner, material);
+                System.out.println("Bạn đã thêm vật liệu thành công.");
+                break;
+            }
+            default: {
+                System.out.println("Bạn đã nhập sai!!!");
             }
         }
     }
